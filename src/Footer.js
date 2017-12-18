@@ -3,7 +3,7 @@ import CreditCardApplication from './CreditCardApplication';
 
 export default class Footer extends Component {
   render() {
-const {loggedInAs, isCreditCardHolder, setLoggedInAs, setIsCreditCardHolder} = this.props;
+// const {loggedInAs, isCreditCardHolder, setLoggedInAs, setIsCreditCardHolder} = this.props;
     return (
       <div className="footer">
         <div className="box" />

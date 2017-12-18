@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
- import {connect} from 'react-redux'
+ import {connect} from 'react-redux';
+ import {logInAs} from './ducks/reducer';
 
  class Login extends Component {
   constructor() {
@@ -18,12 +19,13 @@ import React, { Component } from 'react';
   render() 
 
   {
-const {loggedInAs, isCreditCardHolder}= this.props;
+const {loggedInAs, isCreditCardHolder, dispatch}= this.props;
 
     return (
       <div className="login">
         {!loggedInAs && <div>
-          Log in as <input onChange={(e) => this.updateLoginName(e.target.value)} /> <button className="button" > Go </button>
+          Log in as <input onChange={(e) => this.updateLoginName(e.target.value)} /> <button className="button"  
+          onClick= {() => dispatch(logInAs(this.state.loginName))}> Go </button>
         </div>}
         {loggedInAs && <div>
           Welcome, {loggedInAs}! {isCreditCardHolder && "(CC holder)"}
@@ -41,4 +43,4 @@ const {loggedInAs, isCreditCardHolder}= this.props;
 // const connector = connect(mapStateToProps);
 // const connectedLogin = connector(Login);
 // export default connectedLogin;
-export default connect (mapStateToProps)(Login);
+export default connect(mapStateToProps)(Login);
