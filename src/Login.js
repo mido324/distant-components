@@ -14,13 +14,16 @@ export default class Login extends Component {
     this.setState({ loginName: name })
   }
 
-  render() {
-    const { loggedInAs, isCreditCardHolder } = this.props;
+  render() 
+
+  {
+const {loggedInAs, isCreditCardHolder, setLoggedInAs} = this.props;
 
     return (
       <div className="login">
         {!loggedInAs && <div>
-          Log in as <input onChange={(e) => this.updateLoginName(e.target.value)} /> <button className="button">Go</button>
+          Log in as <input onChange={(e) => this.updateLoginName(e.target.value)} /> <button className="button" onClick={() => 
+          setLoggedInAs(this.state.loginName)} > Go </button>
         </div>}
         {loggedInAs && <div>
           Welcome, {loggedInAs}! {isCreditCardHolder && "(CC holder)"}
